@@ -1,22 +1,19 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import ItemListContainer from "./components/ItemListContainer";
-import ItemDetailContainer from "./components/ItemDetailContainer"; // Now it's created
+import Home from "./components/Home";
+import Checkout from "./components/Checkout";
 
-const App = () => {
+function App() {
   return (
-    <BrowserRouter>
-      <div>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<ItemListContainer greeting="Welcome to Coffee Store!" />} />
-          <Route path="/category/:categoryId" element={<ItemListContainer />} />
-          <Route path="/item/:id" element={<ItemDetailContainer />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
+    </>
   );
-};
+}
 
 export default App;
